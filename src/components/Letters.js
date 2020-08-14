@@ -7,11 +7,11 @@ function Letters({ correctLetters, wrongLetters, setLetter }){
         <div className="letters"  >
             {letters.map( (letter) => {
                 if (wrongLetters.includes(letter)) {
-                    return <span className="wrong">{letter.toUpperCase()}</span>
+                    return <span className="wrong">{letter}</span>
                 } else if (correctLetters.includes(letter)) {
-                    return <span className="correct">{letter.toUpperCase()}</span>
+                    return <span className="correct">{letter}</span>
                 } else {
-                    return <a onClick={setLetter.bind(this, letter.toLowerCase())} href="javascript:;" >{letter.toUpperCase()}</a>
+                    return <a onClick={setLetter.bind(this, letter)} href="javascript:;" >{letter.toUpperCase()}</a>
                 }
             })}
         </div>

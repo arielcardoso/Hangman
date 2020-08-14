@@ -9,13 +9,13 @@ export function checkWin(correct, wrong, word) {
     let status = 'win';
     
     //Remove spaces
-    word = word.replace(/\s/g, '');    
+    word = word.replace(/\s/g, '');
     word.split('').forEach(letter => {
-        if (!correct.includes(letter)){
+        if (!correct.includes(letter.toLowerCase())){
             status = '';
         }
     });
-
+    
     if (wrong.length === 6) 
         status = 'lose';
 

@@ -4,11 +4,16 @@ function Word({ selectedWord, correctLetters }){
     return (
         <div className="word"  >
             {selectedWord.split('').map( (letter, i) => {
-                return (
-                    <span className="letter" key={i} >
-                        {correctLetters.includes(letter) ? letter.toUpperCase() : ' '}
-                    </span>
-                )
+
+                if (correctLetters.includes(letter.toLowerCase())) {
+                    return (<span className="letter" key={i} >{letter.toUpperCase()}</span>);
+                }
+                
+                if (letter == " "){
+                    return (<span className="space" key={i} >-</span>);
+                }
+
+                return (<span className="letter" key={i} ></span>);
             })}
         </div>
     )
