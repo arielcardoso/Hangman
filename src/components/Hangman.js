@@ -3,7 +3,7 @@ import React from 'react'
 const Hangman = ({ wrongLetters }) => {
   const errors = wrongLetters.length
   return (
-    <svg height="232" width="200" className="hangman-container">
+    <svg height="232" width="300" className="hangman-container">
       {/* <!-- Rod --> */}
       <line x1="60" y1="20" x2="140" y2="20" />
       <line x1="140" y1="20" x2="140" y2="50" />
