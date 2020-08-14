@@ -6,14 +6,13 @@ import Letters from './components/Letters';
 import Modal from './components/Modal';
 import Notification from './components/Notification';
 import { showNotification as show, checkWin } from './helpers/helpers';
+import data from "./data.json";
 
 import './App.css';
 
-const words = [
-  //{'question': 'What is the biggest country in the South America?', 'answer':'brazil'},
-  {'question': 'What is the 2nd biggest country in the world?', 'answer':'canada'},
-  //{'question': 'Province localized in the west cost of the Canada?', 'answer':'british columbia'}
-];
+const words = data.map((data) => {
+  return data;
+});
 
 let selectedQuestion = words[Math.floor(Math.random() * words.length)];
 
@@ -29,7 +28,7 @@ function App() {
     const handleKeydown = event => {
       const { key, keyCode } = event;
       if (playable && keyCode >= 65 && keyCode <= 90) {
-        setLetter(key.toLowerCase());
+        setLetter(key);
       }
     }
     window.addEventListener('keydown', handleKeydown);
@@ -50,7 +49,8 @@ function App() {
   }
 
   function setLetter(letter){
-    if (selectedQuestion.answer.includes(letter)) {
+    letter = letter.toLowerCase();
+    if (selectedQuestion.answer.toLowerCase().includes(letter)) {
       if (!correctLetters.includes(letter)) {
         setCorrectLetters(currentLetters => [...currentLetters, letter]);
       } else {
@@ -90,7 +90,7 @@ function App() {
         <Notification showNotification={showNotification} />
       </div>
       <Modal show={won} title="You WON!" text="Congratulations! You won! 😃" playAgain={playAgain} />
-      <Modal show={lost} title="You LOST!" text={'Unfortunately you lost. 😕\nThe word was: ' + selectedQuestion.answer.toUpperCase() + "."} playAgain={playAgain} />
+      <Modal show={lost} title="You LOST!" text={'Unfortunately you lost. 😕\nThe word was: ' + selectedQuestion.answer + "."} playAgain={playAgain} />
     </>
   );
 }
