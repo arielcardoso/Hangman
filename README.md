@@ -15,4 +15,4 @@ If you discover the answer before the hangman is formed you win!
 - Responsive layout
 
 
-Based on the code of <a href="https://github.com/codeSTACKr/hangman-react">Jesse Hall</a>.x
+Based on the code of <a href="https://github.com/codeSTACKr/hangman-react">Jesse Hall</a>.
