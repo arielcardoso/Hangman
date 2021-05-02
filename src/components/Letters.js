@@ -11,7 +11,7 @@ function Letters({ correctLetters, wrongLetters, setLetter }){
                 } else if (correctLetters.includes(letter)) {
                     return <span className="correct">{letter}</span>
                 } else {
-                    return <a onClick={setLetter.bind(this, letter)} href="javascript:;" >{letter.toUpperCase()}</a>
+                    return <span onClick={setLetter.bind(this, letter)} >{letter.toUpperCase()}</span>
                 }
             })}
         </div>
