@@ -9,7 +9,7 @@ function Word({ selectedWord, correctLetters }){
                     return (<span className="letter" key={i} >{letter.toUpperCase()}</span>);
                 }
                 
-                if (letter == " "){
+                if (letter === " "){
                     return (<span className="space" key={i} >-</span>);
                 }
 
